@@ -41,3 +41,9 @@ button:hover, .button:hover {
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}

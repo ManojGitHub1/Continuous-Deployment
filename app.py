@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from werkzeug.exceptions import BadRequestKeyError, HTTPException
+from markupsafe import escape
 import os
 import logging
 import re
@@ -52,8 +53,8 @@ def greet():
             return redirect(url_for('index'))
         
         logger.info(f'Greeting user: {username}')
-        # Use escape() when passing to template
-        return render_template('greet.html', username=username)
+        # Use escape() when passing to template for additional security
+        return render_template('greet.html', username=escape(username))
     
     except BadRequestKeyError as e:
         logger.error(f'Bad request error: {str(e)}')
